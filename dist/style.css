@@ -1,0 +1,74 @@
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: 'Consolas', sans-serif;
+  color: #616161;
+  font-size: 1.6rem;
+  padding: 0;
+  margin: 0;
+}
+button, input {
+  font: inherit;
+  display: block;
+}
+.panel {
+  width: min-content;
+  margin: 1rem auto auto;
+  background-color: #e4e4e4;
+  border: 1px solid;
+  border-color: #d6d6d6 #b9b9b9 #b9b9b9 #d6d6d6;
+  padding: 1.8rem 1rem 1rem;
+  display: grid;
+  grid-template-columns: repeat(4, 4.5rem);
+  grid-template-rows: min-content min-content repeat(6, 4.5rem);
+  grid-gap: .8rem;
+  justify-content: space-around; 
+  position: relative;
+}
+.panel.is-answer::after {
+  content: 'Answer';
+  position: absolute;
+  grid-column-start: 1;
+  grid-row: 2 / 3;
+  align-self: end;
+  left: .5rem;
+  bottom: .3rem;
+  font-size: 1.2rem;
+  color: #4520ff;
+}
+.lbl {
+  background-color: transparent;
+  border: solid 1px #fff;
+  padding: .5rem .6rem;
+  text-align: right;
+}
+.lbl-small {
+  grid-area: 1 / span 4;
+  font-size: 1.2rem;
+  color: #828282;
+}
+.lbl-large {
+  grid-area: 2 / span 4;
+  line-height: 2.5rem;
+  font-size: 2rem;
+}
+.lbl-large.is-error {
+  font-size: 1.4rem;
+  color: #dc2222;
+}
+.btn {
+  background-color: #ddeccf;
+  border-radius: 4.5rem;
+  border: solid 2px #fff;
+  font-size: 2rem;
+  color: #717171;
+  box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.2);
+  outline-color: #fff;
+}
+.btn:active, .btn-active {
+  box-shadow: none;
+}
+.btn-num {
+  background-color: #f9e7f0;
+}
