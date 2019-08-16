@@ -55,8 +55,11 @@ export default class ResultState implements State {
   inputBack(app: App) {
     app.clearHistory();
     app.toggleAnswerMode(false);
-    app.backSpaceDisplay();
-    app.switchState(NumberState.instance);
+    if (app.backSpaceDisplay()) {
+      app.switchState(BeforeLeftSideState.instance);
+    } else {
+      app.switchState(NumberState.instance);
+    }
   }
   inputClear(app: App) {
     this.inputAllClear(app);

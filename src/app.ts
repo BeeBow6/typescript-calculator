@@ -138,8 +138,9 @@ class App {
     this.display.setNumber(result);
   }
   // 数値1文字クリア
-  backSpaceDisplay() {
+  backSpaceDisplay(): boolean {
     this.display.removeLastNumber();
+    return this.display.isEmpty;
   }
   // 表示クリア
   clearDisplay() {

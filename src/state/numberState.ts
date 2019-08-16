@@ -59,7 +59,9 @@ export default class NumberState implements State {
     app.invertSign();
   }
   inputBack(app: App) {
-    app.backSpaceDisplay();
+    if (app.backSpaceDisplay()) {
+      app.switchState(BeforeLeftSideState.instance);
+    }
   }
   inputEqual(app: App) {
     try {

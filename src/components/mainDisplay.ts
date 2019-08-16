@@ -20,6 +20,10 @@ export default class MainDisplay extends Component<HTMLInputElement>{
     this.clear();
   }
 
+  get isEmpty(): boolean {
+    return this.data === '';
+  }
+
   getTemplate() {
     return '<input value="" type="text" class="lbl lbl-large" readonly>';
   }
@@ -50,6 +54,7 @@ export default class MainDisplay extends Component<HTMLInputElement>{
     }
     this.isNegative = value < 0;
     this.data = `${Math.abs(value) || ''}`.slice(0, LENGTH_MAX);
+    this.isDecimal = this.data.includes(NUMBER.POINT);
     this.displayNumber();
     return;
   }
@@ -65,6 +70,8 @@ export default class MainDisplay extends Component<HTMLInputElement>{
 
   removeLastNumber() {
     this.data = this.data.slice(0, -1);
+    if (this.isDecimal) this.isDecimal = this.data.includes(NUMBER.POINT);
+    if (this.data === '') this.isNegative = false;
     this.displayNumber();
   }
 
