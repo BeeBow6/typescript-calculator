@@ -46,6 +46,6 @@ export default class BeforeLeftSideState implements State {
   inputBack() { /* 対応しない */ }
   inputClear() { /* 対応しない */ }
   inputAllClear(app: App) {
-    app.clearDisplay();
+    app.clearAll();
   }
 }
