@@ -20,6 +20,10 @@ export default class ProcessDisplay extends Component<HTMLInputElement> {
     return '<input value="" type="text" class="lbl lbl-small" readonly>';
   }
 
+  get isParenMode(): boolean {
+    return this.countParen > 0;
+  }
+
   setNumber(number: number) {
     this.setStack(number);
   }
@@ -47,8 +51,14 @@ export default class ProcessDisplay extends Component<HTMLInputElement> {
     return [...this.stack, ...rightParens];
   }
 
+  setResult() {
+    this.stack = this.getStack();
+    this.display();
+  }
+
   clear() {
     this.currentOperator = null;
+    this.countParen = 0;
     this.stack = [];
     this.display();
   }

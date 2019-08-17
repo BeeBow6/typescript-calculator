@@ -120,6 +120,10 @@ class App {
     const num: number = this.display.getNumber();
     this.process.setNumber(num);
   }
+  // 括弧利用中確認
+  checkParenMode() {
+    return this.process.isParenMode;
+  }
   // 左括弧追加
   setLeftParen() {
     this.process.setLeftParen();
@@ -163,6 +167,7 @@ class App {
   // 解答表示中
   toggleAnswerMode(flg: boolean = false) {
     this.panel.toggleAnswerMode(flg);
+    if (flg) this.process.setResult();
   }
 }
 

@@ -46,6 +46,8 @@ export default class NumberState implements State {
     app.switchState(BeforeLeftSideState.instance);
   }
   inputRightParen(app: App) {
+    if (!app.checkParenMode()) return;
+
     try {
       app.determineNumber();
       app.setRightParen();
