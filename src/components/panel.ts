@@ -9,7 +9,7 @@ export default class Panel extends Component<HTMLFormElement> {
     return '<form class="panel"></form>';
   }
 
-  add(parts: Component<Element>) {
+  add(parts: Component<HTMLElement>) {
     this.element.appendChild(parts.element);
   }
 
